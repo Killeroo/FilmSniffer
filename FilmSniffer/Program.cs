@@ -100,6 +100,10 @@ namespace FilmSniffer
 
                 Movie m = LookupFilm(conf.Films[i], conf);
 
+                // Add film to list
+                movies.Add(m);
+
+                // Print details
                 ConsoleColor color = Console.ForegroundColor;
                 if (m == null || m.Response == "False")
                 {
@@ -241,7 +245,7 @@ namespace FilmSniffer
                     file.WriteLine("Title,Year,Rated,Released,Runtime,Genre,Director,Writer,Actors,Plot,Language,Country,Awards,Poster,Metascore,ImdbRating,Type,Dvd,BoxOffice,Production,Website");
                     for (int i = 0; i < movies.Count; i++)
                     {
-                        file.WriteLine("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17},{18},{19}",
+                        file.WriteLine("\"{0}\",{1},{2},{3},{4},\"{5}\",\"{6}\",\"{7}\",\"{8}\",\"{9}\",\"{10}\",\"{11}\",\"{12}\",{13},{14},{15},{16},\"{17}\",\"{18}\",{19}",
                             movies[i].Title,
                             movies[i].Year,
                             movies[i].Rated,
@@ -289,7 +293,7 @@ namespace FilmSniffer
                         file.WriteLine("Title");
                         for (int i = 0; i < movies.Count; i++)
                         {
-                            file.WriteLine("{0}", movies[i].Title);
+                            file.WriteLine("\"{0}\"", movies[i].Title);
                         }
                     }
                     Console.ForegroundColor = ConsoleColor.Green;
@@ -325,7 +329,7 @@ namespace FilmSniffer
                         file.WriteLine("Genres");
                         for (int i = 0; i < movies.Count; i++)
                         {
-                            file.WriteLine("{0}", movies[i].Genre);
+                            file.WriteLine("\"{0}\"", movies[i].Genre);
                         }
                     }
                     Console.ForegroundColor = ConsoleColor.Green;
